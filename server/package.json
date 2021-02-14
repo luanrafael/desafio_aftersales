@@ -1,0 +1,22 @@
+{
+  "name": "desafio_aftersales_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha --reporter spec",
+    "debug": "nodemon --inspect ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.1"
+  }
+}
