@@ -1,4 +1,4 @@
-# desafio_aftersales
+# desafio_aftersales [![Build Status](https://travis-ci.com/luanrafael/desafio_aftersales.svg?branch=main)](https://travis-ci.com/luanrafael/desafio_aftersales)
 
 # requisitos
 Antes de qualquer coisa vamos precisar ter em nosso ambiente o **Node** e **npm** devidamente instalados e configurados
