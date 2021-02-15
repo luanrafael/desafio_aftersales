@@ -18,7 +18,7 @@ Depois vamos clonar e instalar as dependências do projeto
     npm install
 ```
 
-Antes de iniciar a aplicação devemos configuar as credencias que o serviço de email irá utilizar, para isso navegue até o arquivo `server/app/config/index.js` e configure apropriadamente como o exemplo abaixo:
+Antes de iniciar a aplicação devemos configuar as credencias que o serviço de email irá utilizar, para isso navegue até o arquivo `app/config/index.js` e configure apropriadamente como o exemplo abaixo:
 
 ```javascript
 module.exports = {
@@ -47,7 +47,7 @@ Terminada a configuração basta rodar o comando abaixo para iniciar a aplicaç�
 Se tudo estiver certo a aplicação será iniciada e você terá no seu output o seguinte conteúdo
 
 ```sh
-> desafio_aftersales_server@1.0.0 start D:\repositorio\desafio_aftersales\server
+> desafio_aftersales_server@1.0.0 start D:\repositorio\desafio_aftersales
 > node ./bin/www
 
 POST /api/usuario
