@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --reporter spec",
+    "test": "mocha --reporter spec ./app/testes",
     "debug": "nodemon --inspect ./bin/www"
   },
   "author": "",
@@ -22,5 +22,9 @@
     "sequelize": "^6.5.0",
     "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.3.0"
   }
 }

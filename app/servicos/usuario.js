@@ -3,14 +3,7 @@ const jwt = require('jsonwebtoken')
 const config = require('../config')
 
 const criar = async (dados) => {
-    let usuario
-    try {
-        usuario = await db.usuario.build(dados)
-        const validacao = await usuario.validate();
-    } catch (error) {
-        return { erro: true, status: 400, mensagem: error.mensagem || 'ocorreu um erro ao tentar criar o usuário'};
-    }
-    await usuario.save();
+    const usuario = await db.usuario.create(dados)
     return usuario
 }
 
