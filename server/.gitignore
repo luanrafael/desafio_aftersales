@@ -1,3 +1,4 @@
+*.sqlite3*
 
 # Logs
 logs
@@ -103,5 +104,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-database.sqlite3
