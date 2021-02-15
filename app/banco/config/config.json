@@ -5,7 +5,8 @@
   },
   "test": {
     "dialect": "sqlite",
-    "storage": ":memory"
+    "storage": "./database-test.sqlite3",
+    "logging": false
   },
   "production": {
     "dialect": "sqlite",

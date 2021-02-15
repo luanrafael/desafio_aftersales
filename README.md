@@ -14,7 +14,7 @@ Depois vamos clonar e instalar as dependências do projeto
 
 ```sh
     git clone https://github.com/luanrafael/desafio_aftersales.git
-    cd desafio_aftersales/server
+    cd desafio_aftersales
     npm install
 ```
 

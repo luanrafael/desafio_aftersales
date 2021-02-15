@@ -17,12 +17,24 @@ const favoritar = async (id_usuario, id_produto) => {
         return {mensagem: "produto já favoritado!"}
     }
 
-    await db.produto_favorito.create({
-        fk_id_usuario: id_usuario,
-        fk_id_produto: id_produto
-    })
+    let produto_favorito;
+    try { 
+        produto_favorito =  await db.produto_favorito.build({
+            fk_id_usuario: id_usuario,
+            fk_id_produto: id_produto
+        })
+        await produto_favorito.validate()
+    } catch (erro) {
+        return { erro: true, status: 400, mensagem: erro.mensagem || 'ocorreu um erro ao tentar favoritar o produto'};   
+    }
 
-    await servicoEmail.agendarEmail(id_usuario)
+    await produto_favorito.save()
+
+    try {
+        await servicoEmail.agendarEmail(id_usuario)
+    } catch (error) {
+        console.error('Nao consegui agendar o email')
+    }
 
     return {mensagem: "produto favoritado com sucesso!"}
 }
