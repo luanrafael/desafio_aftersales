@@ -6,7 +6,6 @@ const URL_PRODUTOS = `https://${CHAVE_API}:${SENHA_API}@send4-avaliacao.myshopif
 
 const recuperarProdutos = async () => {
     const resposta = await axios.get(URL_PRODUTOS)
-    console.log(resposta.data)
     return resposta.data
 }
 

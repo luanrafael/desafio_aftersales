@@ -4,6 +4,7 @@ const router = express.Router()
 const controladores = require('../controladores')
 
 router
-.get('/', controladores.usuario.perfil)
+.post('/', controladores.usuario.criar)
+.post('/autenticar', controladores.usuario.autenticar)
 
 module.exports = router

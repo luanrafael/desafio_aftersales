@@ -1,19 +1,44 @@
 const servicos = require('../servicos')
 
 const recuperarTodos = async (req, resp) => {
-    resp.status(200).send(await servicos.shopify.recuperarProdutos())
+    try {
+        resp.status(200).send(await servicos.shopify.recuperarProdutos())
+    } catch (error) {
+        resp.status(500).send({erro: true, mensagem: "erro interno!"})
+        
+    } 
 }
 
-const recuperarProdutosFavoritosTodos = async (req, resp) => {
-    resp.status(200).send(await servicos.produto.recuperarFavoritos("0b023875-59a6-41a1-b06c-569ab9b509a0"))
+const recuperarProdutosFavoritos = async (req, resp) => {
+    try {
+        resp.status(200).send(await servicos.produto.recuperarFavoritos(req.id_usuario))
+    } catch (error) {
+        resp.status(500).send({erro: true, mensagem: "erro interno!"})
+        
+    } 
 }
 
-const atualizarProduto = async (req, resp) => {
-    resp.status(200).send(await servicos.produto.atualizarProduto("0b023875-59a6-41a1-b06c-569ab9b509a0", req.body.id_produto))
+const favoritar = async (req, resp) => {
+    try {
+        resp.status(201).send(await servicos.produto.favoritar(req.id_usuario, req.body.id_produto))
+    } catch (error) {
+        resp.status(500).send({erro: true, mensagem: "erro interno!"})
+        
+    } 
+}
+
+const desfavoritar = async (req, resp) => {
+    try {
+        resp.status(200).send(await servicos.produto.desfavoritar(req.id_usuario, req.body.id_produto))
+    } catch (error) {
+        resp.status(500).send({erro: true, mensagem: "erro interno!"})
+        
+    } 
 }
 
 module.exports = {
     recuperarTodos,
-    recuperarProdutosFavoritosTodos,
-    atualizarProduto
+    recuperarProdutosFavoritos,
+    favoritar,
+    desfavoritar
 }

@@ -35,6 +35,9 @@ Object.keys(db).forEach(modelName => {
 db.produto_favorito.belongsTo(db.usuario, {foreignKey: 'fk_id_usuario' })
 db.usuario.hasMany(db.produto_favorito, {foreignKey: 'fk_id_usuario' })
 
+db.email.belongsTo(db.usuario, {foreignKey: 'fk_id_usuario' })
+db.usuario.hasMany(db.email, {foreignKey: 'fk_id_usuario' })
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

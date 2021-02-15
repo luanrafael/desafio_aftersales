@@ -3,6 +3,8 @@ const router = express.Router()
 const app = express()
 
 const rotas = require('./app/rotas/')
+const servicoAutenticacao = require('./app/servicos/autenticacao')
+const servicoEmail = require('./app/servicos/email')
 
 app.use(express.json({limit: '50mb'}))
 app.use(express.urlencoded({ limit: '50mb', extended: true }))
@@ -21,8 +23,10 @@ app.use(function (req, res, next) {
 })
 
 
-router.use('/usuario', rotas.usuario)
-router.use('/produto', rotas.produto)
+router.use('/usuario', rotas.usuario_padrao)
+router.use('/perfil', servicoAutenticacao.validarToken, rotas.usuario)
+router.use('/produto', servicoAutenticacao.validarToken, rotas.produto)
+router.use('/cron', rotas.cron)
 
 // rota base
 app.use('/api', router)
@@ -77,5 +81,11 @@ function split (thing) {
 }
 
 app._router.stack.forEach(print.bind(null, []))
+
+const cron = require('node-cron')
+
+cron.schedule('* * * * *', () => {
+  servicoEmail.enviarEmails()
+});
 
 module.exports = app
