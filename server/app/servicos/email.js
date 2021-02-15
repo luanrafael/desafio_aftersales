@@ -28,7 +28,7 @@ const agendarEmail = async (id_usuario) => {
 }
 
 const enviarEmails = async () => {
-    console.log("Verificando se para emails a enviar.")
+    console.log("Verificando se para tem emails a enviar.")
     const emails = await db.email.findAll({
         where: {
             status: true
