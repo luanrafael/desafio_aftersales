@@ -31,6 +31,12 @@ module.exports = {
 }
 ```
 
+# testes
+
+```sh
+    npm test
+```
+
 # inicialização
 Terminada a configuração basta rodar o comando abaixo para iniciar a aplicação
 
